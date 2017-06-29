@@ -36,21 +36,31 @@ softmax readout layer W5[200,10]
 
 #need a weights matrix and bias vector per layer
 
+X = tf.placeholder(tf.float32, [None, 28, 28, 1])
+
 K = 4
 L = 8
 M = 12
 
+#[28x28, 4]
 W1 = tf.Variable(tf.truncated_normal([5,5,1,K], stddev=0.1))
 B1 = tf.Variable(tf.ones([K]/10)
+
+#STRIDE = 2 (14x14x8)
 W2 = tf.Variable(tf.truncated_normal([4,4,K,L], stddev=0.1))
 B2 = tf.Variable(tf.ones([L]/10)
+
+#STRIDE = 2 (7x7x12)
 W3 = tf.Variable(tf.truncated_normal([4,4,L,M], stddev=0.1))
 B3 = tf.Variable(tf.ones([M]/10)
 
 N = 200
 
+#[7x7x12, 10]
 W4 = tf.Variable(tf.truncated_normal([7*7*M, N], stddev=0.1))
 B4 = tf.Variable(tf.ones([N]/10)
+
+#[200, 10]
 W5 = tf.Variable(tf.truncated_normal([N, 10], stddev=0.1))
 B5 = tf.Variable(tf.zeros([10]))
 
@@ -58,6 +68,7 @@ B5 = tf.Variable(tf.zeros([10]))
 #the model
 
 #x[100,28,28,1]
+X = tf.reshape(X, [-1, 28*28])
 
 Y1 = tf.nn.relu(tf.nn.conv2d(X, W1, strides=[1,1,1,1] padding='SAME') + B1)
 Y2 = tf.nn.relu(tf.nn.conv2d(Y1, W2, strides=[1,2,2,1] padding='SAME') + B2)

@@ -24,6 +24,8 @@ Y = tf.nn.dropout(Yf, pkeep)
 from tensorflow.examples.tutorials.mnist import input_data
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
+X = tf.placeholder(tf.float32, [None, 28, 28, 1])
+
 #4 layers with x number of neurons with the last, output layer having 10 neurons
 K = 200
 L = 100
@@ -44,7 +46,7 @@ W4 = tf.Variable(tf.truncated_normal([M,N], stddev=0.1))
 B4 = tf.Variable(tf.zeros([N])
 
 W5 = tf.Variable(tf.truncated_normal([N, 10], stddev=0.1))
-B5 = tf.Varaible(tf.zeros([10])
+B5 = tf.Variable(tf.zeros([10])
 
 
 X = tf.reshape(X, [-1, 28*28])
