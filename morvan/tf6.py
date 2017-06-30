@@ -25,3 +25,7 @@ print('result', result)
 sess.close() #closes session, but session auto closes so not necessary
 
 #method2 to use session
+
+with tf.Session() as sess:
+    result2 = sess.run(product)
+    print('result2', result2)
