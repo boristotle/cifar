@@ -21,20 +21,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tf5.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/morvan/tf5.py">
+      <file leaf-file-name="mnist_without_phd.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mnist_without_phd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+            <state relative-caret-position="126">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mnist_without_phd.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mnist_without_phd.py">
+      <file leaf-file-name="tf6.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/morvan/tf6.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
+            <state relative-caret-position="450">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
@@ -69,6 +69,7 @@
         <option value="$PROJECT_DIR$/mnist_without_phd.py" />
         <option value="$PROJECT_DIR$/image_classifier_simple.py" />
         <option value="$PROJECT_DIR$/morvan/tf5.py" />
+        <option value="$PROJECT_DIR$/morvan/tf6.py" />
       </list>
     </option>
   </component>
@@ -212,12 +213,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1498674768047</updated>
-      <workItem from="1498674769210" duration="31191000" />
+      <workItem from="1498674769210" duration="32254000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31191000" />
+    <option name="totallyTimeSpent" value="32254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1975" y="24" width="1865" height="1056" extended-state="6" />
@@ -367,6 +368,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/morvan/tf5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mnist_without_phd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -375,10 +384,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morvan/tf5.py">
+    <entry file="file://$PROJECT_DIR$/morvan/tf6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        <state relative-caret-position="450">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
