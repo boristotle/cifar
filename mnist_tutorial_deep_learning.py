@@ -51,6 +51,7 @@ B5 = tf.Variable(tf.zeros([10]))
 
 X = tf.reshape(X, [-1, 28*28])
 
+
 Y1 = tf.nn.relu(tf.matmul(X, W1) + B1)
 Y2 = tf.nn.relu(tf.matmul(Y1, W2) + B2)
 Y3 = tf.nn.relu(tf.matmul(Y2, W3) + B3)
