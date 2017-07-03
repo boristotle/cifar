@@ -34,19 +34,19 @@ N = 30
 
 #truncated normal initializes the weights as small random values as good practice
 W1 = tf.Variable(tf.truncated_normal([28*28, K], stddev=0.1))
-B1 = tf.Variable(tf.zeros([K])
+B1 = tf.Variable(tf.zeros([K]))
 
 W2 = tf.Variable(tf.truncated_normal([K,L], stddev=0.01))
-B2 = tf.Variable(tf.zeros([L])
+B2 = tf.Variable(tf.zeros([L]))
 
 W3 = tf.Variable(tf.truncated_normal([L,M], stddev=0.1))
-B3 = tf.Variable(tf.zeros([M])
+B3 = tf.Variable(tf.zeros([M]))
 
 W4 = tf.Variable(tf.truncated_normal([M,N], stddev=0.1))
-B4 = tf.Variable(tf.zeros([N])
+B4 = tf.Variable(tf.zeros([N]))
 
 W5 = tf.Variable(tf.truncated_normal([N, 10], stddev=0.1))
-B5 = tf.Variable(tf.zeros([10])
+B5 = tf.Variable(tf.zeros([10]))
 
 
 X = tf.reshape(X, [-1, 28*28])
@@ -79,7 +79,7 @@ optimizer = tf.train.GradientDescentOptimizer(0.003)
 train_step = optimizer.minimize(cross_entropy)
 
 #RUN TRAINING LOOP
-
+init = tf.global_variables_initializer()
 sess = tf.Session()
 sess.run(init)
 
@@ -94,12 +94,14 @@ for i in range(1000):
     sess.run(train_step, feed_dict=train_data)
 
     #see how successful we are on our training data
-    a, c = sess.run([accuracy, cross_entropy], feed=train_data)
+    a, c = sess.run([accuracy, cross_entropy], feed_dict=train_data)
 
 
     #see how successful we are on our testing data (run this only every so often, not on every iteration of the training loop)
     test_data = {X: mnist.test.images, Y_: mnist.test.labels}
-    a,c = sess.run([accuracy, cross_entropy], feed=test_data)
+    a,c = sess.run([accuracy, cross_entropy], feed_dict=test_data)
+    if (i % 50 == 0):
+        print('accuracy', a)
 
 
 
