@@ -1,7 +1,6 @@
 import tensorflow as tf
 import pickle
 import numpy as np
-
 import matplotlib.pyplot as plt
 
 def one_hot_encode(x):
@@ -21,7 +20,6 @@ label_names = dict["label_names"]
 #print('dict', dict["label_names"])
 
 
-
 img_data_file = open('cifar-10-batches-py/data_batch_1', "rb")
 img_dict = pickle.load(img_data_file, encoding="latin1")
 #print('img_data', img_dict['data'])
@@ -36,7 +34,6 @@ train_features = img_dict['data']
 #print('train_labels', train_labels)
 
 
-
 test_data_file = open('cifar-10-batches-py/test_batch', "rb")
 test_dict = pickle.load(test_data_file, encoding="latin1")
 
@@ -45,21 +42,21 @@ test_labels = test_dict['labels']
 
 X = tf.placeholder(tf.float32, [None, 3072], 'X')
 W = tf.Variable(tf.zeros([32*32*3, 10]))
-b = tf.Variable(tf.zeros([10]))
+b = tf.Variable(tf.zeros([1, 10]))
 
-
+#model
 Y = tf.nn.softmax(tf.matmul(tf.reshape(X, [-1, 32*32*3]), W) + b)
 
 #placeholder for correct answers
 Y_ = tf.placeholder(tf.float32, [None, 10], 'Y_')
 
-
+#loss function
 cross_entropy = -tf.reduce_sum(Y_ * tf.log(Y))
 
 is_correct = tf.equal(tf.argmax(Y, 1), tf.argmax(Y_, 1))
 accuracy = tf.reduce_mean(tf.cast(is_correct, tf.float32))
 
-optimizer = tf.train.GradientDescentOptimizer(0.0003)
+optimizer = tf.train.GradientDescentOptimizer(0.003)
 train_step = optimizer.minimize(cross_entropy)
 
 init = tf.initialize_all_variables()
@@ -74,12 +71,22 @@ a, c = sess.run([accuracy, cross_entropy], feed_dict=train_data)
 print('accuracy_training', a)
 
 '''
+'''
+z = tf.argmax(Y, 1)
+z1 = tf.argmax(Y_, 1)
+
+train_data = {X: train_features, Y_: train_labels}
+z, z1 = sess.run([z, z1], feed_dict=train_data)
+
+'''
 
 
-for i in range(10):
+for i in range(1):
 #load batch of images and correct answers
 
     train_data = {X: train_features, Y_: train_labels}
+    print('train_features[0]', train_features[0])
+    print('train_labels[0]', train_labels[0])
 
     #train on that data using the data from our image batch of 100
     sess.run(train_step, feed_dict=train_data)
